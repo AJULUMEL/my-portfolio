@@ -146,11 +146,11 @@ export default function ProjectsSection() {
                         .filter((p) => p.isMobile)
                         .map((project, index) => (
                             <AnimationWrapper key={project.id} variant="fadeInUp" delay={index * 0.15}>
-                                <Card hover className="group overflow-hidden flex flex-col h-full bg-white dark:bg-slate-900/50 backdrop-blur-sm border border-blue-100 dark:border-slate-700/30 hover:border-blue-300 dark:hover:border-primary/50 transition-all duration-300 shadow-sm dark:shadow-lg hover:shadow-md dark:hover:shadow-2xl hover:shadow-blue-100 dark:hover:shadow-primary/20">
+                                <Card hover className="group overflow-hidden flex flex-col h-full bg-white dark:bg-slate-900/50 backdrop-blur-sm border border-blue-100 dark:border-slate-700/30 hover:border-blue-300 dark:hover:border-primary/50 transition-all duration-300 shadow-sm dark:shadow-lg hover:shadow-md dark:hover:shadow-2xl hover:shadow-blue-100 dark:hover:shadow-primary/20 p-4 sm:p-6">
                                     <div className="space-y-3 flex-1 p-0">
                                         {/* Project Image */}
-                                        <div 
-                                            className={`w-full max-w-[17rem] sm:max-w-sm mx-auto aspect-[400/827] bg-gradient-to-br from-slate-100 via-slate-100 to-slate-200 dark:from-slate-800 dark:via-slate-800 dark:to-slate-900 rounded-xl flex items-center justify-center text-6xl overflow-hidden relative cursor-pointer group p-1.5 sm:p-2 border-b border-slate-700/20 transition-all duration-300`}
+                                        <div
+                                            className={`w-full max-w-[17rem] sm:max-w-sm mx-auto aspect-[400/827] bg-gradient-to-br from-slate-100 via-slate-100 to-slate-200 dark:from-slate-800 dark:via-slate-800 dark:to-slate-900 rounded-2xl flex items-center justify-center text-6xl overflow-hidden relative cursor-pointer group p-1.5 sm:p-2 transition-all duration-300`}
                                             onClick={() => openModal(project)}
                                         >
                                             <motion.div
@@ -167,7 +167,7 @@ export default function ProjectsSection() {
                                                         muted
                                                         playsInline
                                                         preload="metadata"
-                                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                                                        className="w-full h-auto object-contain"
                                                     >
                                                         <source src={project.image} type={project.image.endsWith('.mp4') ? 'video/mp4' : 'video/webm'} />
                                                     </video>
@@ -189,15 +189,15 @@ export default function ProjectsSection() {
                                         </div>
 
                                         {/* Project Info */}
-                                        <div className="px-4 pt-4">
+                                        <div className="px-2 sm:px-4 pt-3 sm:pt-4">
                                             <h3 className="text-lg font-bold mb-2 text-slate-900 dark:text-white drop-shadow-sm tracking-wide">{project.title}</h3>
                                             <p className="text-slate-600 dark:text-slate-300 text-sm mb-3 leading-relaxed">{project.description}</p>
                                         </div>
 
                                         {/* Tags */}
-                                        <div className="px-4 flex flex-wrap gap-2">
+                                        <div className="px-2 sm:px-4 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
                                             {project.tags.map((tag) => (
-                                                <Badge key={tag} variant="primary" className="text-xs py-1 px-2.5 bg-gradient-to-r from-primary/80 to-accent/80 hover:from-primary to-accent transition-all duration-300 backdrop-blur-sm">
+                                                <Badge key={tag} variant="primary" className="w-full justify-center text-[11px] sm:text-xs py-1 px-2.5 bg-gradient-to-r from-primary/80 to-accent/80 hover:from-primary to-accent transition-all duration-300 backdrop-blur-sm sm:w-auto">
                                                     {tag}
                                                 </Badge>
                                             ))}
@@ -205,7 +205,7 @@ export default function ProjectsSection() {
                                     </div>
 
                                     {/* Buttons */}
-                                    <div className="flex flex-col sm:flex-row gap-2 p-4 border-t border-slate-700/20">
+                                    <div className="flex flex-col sm:flex-row gap-2 p-4 mt-2 sm:mt-3">
                                         <Button
                                             variant="primary"
                                             size="sm"
@@ -235,13 +235,10 @@ export default function ProjectsSection() {
                             .filter((p) => !p.isMobile)
                             .map((project, index) => (
                                 <AnimationWrapper key={project.id} variant="fadeInUp" delay={index * 0.15}>
-                                    <Card hover className="group overflow-hidden flex flex-col h-full bg-white dark:bg-slate-900/50 backdrop-blur-sm border border-blue-100 dark:border-slate-700/30 hover:border-blue-300 dark:hover:border-primary/50 transition-all duration-300 shadow-sm dark:shadow-lg hover:shadow-md dark:hover:shadow-2xl hover:shadow-blue-100 dark:hover:shadow-primary/20">
+                                    <Card hover className="group overflow-hidden flex flex-col h-full bg-white dark:bg-slate-900/50 backdrop-blur-sm border border-blue-100 dark:border-slate-700/30 hover:border-blue-300 dark:hover:border-primary/50 transition-all duration-300 shadow-sm dark:shadow-lg hover:shadow-md dark:hover:shadow-2xl hover:shadow-blue-100 dark:hover:shadow-primary/20 p-4 sm:p-6">
                                         <div className="space-y-3 flex-1 p-0">
                                             {/* Project Image */}
-                                            <div 
-                                                className={`w-full bg-gradient-to-br from-primary/30 via-accent/20 to-slate-800/30 rounded-t-xl flex items-center justify-center text-6xl overflow-hidden relative cursor-pointer group h-44 sm:h-48 border-b border-slate-700/20 transition-all duration-300`}
-                                                onClick={() => openModal(project)}
-                                            >
+                                            <div className="w-full overflow-hidden rounded-2xl relative cursor-pointer group">
                                                 <motion.div
                                                     className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10 backdrop-blur-sm"
                                                     whileHover={{ scale: 1.08 }}
@@ -256,7 +253,7 @@ export default function ProjectsSection() {
                                                             muted
                                                             playsInline
                                                             preload="metadata"
-                                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                                                            className="w-full h-auto object-contain"
                                                         >
                                                             <source src={project.image} type={project.image.endsWith('.mp4') ? 'video/mp4' : 'video/webm'} />
                                                         </video>
@@ -278,15 +275,15 @@ export default function ProjectsSection() {
                                             </div>
 
                                             {/* Project Info */}
-                                            <div className="px-4 pt-4">
+                                            <div className="px-2 sm:px-4 pt-3 sm:pt-4">
                                                 <h3 className="text-lg font-bold mb-2 text-slate-900 dark:text-white drop-shadow-sm tracking-wide">{project.title}</h3>
                                                 <p className="text-slate-600 dark:text-slate-300 text-sm mb-3 leading-relaxed">{project.description}</p>
                                             </div>
 
                                             {/* Tags */}
-                                            <div className="px-4 flex flex-wrap gap-2">
+                                            <div className="px-2 sm:px-4 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
                                                 {project.tags.map((tag) => (
-                                                    <Badge key={tag} variant="primary" className="text-xs py-1 px-2.5 bg-gradient-to-r from-primary/80 to-accent/80 hover:from-primary to-accent transition-all duration-300 backdrop-blur-sm">
+                                                    <Badge key={tag} variant="primary" className="w-full justify-center text-[11px] sm:text-xs py-1 px-2.5 bg-gradient-to-r from-primary/80 to-accent/80 hover:from-primary to-accent transition-all duration-300 backdrop-blur-sm sm:w-auto">
                                                         {tag}
                                                     </Badge>
                                                 ))}
@@ -294,7 +291,7 @@ export default function ProjectsSection() {
                                         </div>
 
                                         {/* Buttons */}
-                                        <div className="flex flex-col sm:flex-row gap-2 p-4 border-t border-slate-700/20">
+                                        <div className="flex flex-col sm:flex-row gap-2 p-4 mt-2 sm:mt-3">
                                             <Button
                                                 variant="primary"
                                                 size="sm"
